@@ -12,12 +12,12 @@
     <packaging>pom</packaging>
     <groupId>club.p6e.coat</groupId>
     <artifactId>p6e-coat-starter-parent</artifactId>
-    <version>${p6e-coat.version}</version>
+    <version>3.1.0</version>
     <name>p6e-coat-starter-parent</name>
     <description>p6e-coat-starter-parent</description>
 
     <properties>
-        <skipTests>true</skipTests>
+        <skip-tests>true</skip-tests>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -25,7 +25,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <p6e-coat.version>3.1.0</p6e-coat.version>
         <spring-boot.version>3.1.0</spring-boot.version>
+        <netty.version>4.1.97.Final</netty.version>
+        <r2dbc-postgresql.version>1.0.2.RELEASE</r2dbc-postgresql.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -37,8 +40,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-permission</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
