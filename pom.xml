@@ -24,18 +24,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <p6e-coat.version>3.1.0</p6e-coat.version>
-        <spring-boot.version>3.1.0</spring-boot.version>
-        <netty.version>4.1.97.Final</netty.version>
+        <spring-boot.version>3.2.0</spring-boot.version>
+        <netty.version>4.1.102.Final</netty.version>
+        <http.client.version>4.5.14</http.client.version>
         <r2dbc-postgresql.version>1.0.2.RELEASE</r2dbc-postgresql.version>
     </properties>
 
     <dependencies>
+        <!-- lombok [START] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- lombok [END] -->
 
+        <!-- Spring Boot Test [START] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -54,15 +58,11 @@
             <artifactId>snakeyaml</artifactId>
             <version>2.0</version>
         </dependency>
+        <!-- Spring Boot Test [END] -->
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>4.1.97.Final</version>
-            </dependency>
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-common</artifactId>
@@ -82,6 +82,16 @@
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-websocket</artifactId>
                 <version>${p6e-coat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${http.client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
