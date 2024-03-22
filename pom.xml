@@ -70,6 +70,21 @@
             </dependency>
             <dependency>
                 <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-auth</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-message-center</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-auth-client</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-file</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
