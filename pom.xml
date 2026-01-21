@@ -5,14 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <packaging>pom</packaging>
     <groupId>club.p6e.coat</groupId>
     <artifactId>p6e-coat-starter-parent</artifactId>
-    <version>3.1.0</version>
     <name>p6e-coat-starter-parent</name>
     <description>p6e-coat-starter-parent</description>
 
@@ -23,20 +22,27 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <p6e-coat.version>3.1.0</p6e-coat.version>
-        <spring-boot.version>3.1.0</spring-boot.version>
+        <p6e-coat.version>3.4.2</p6e-coat.version>
+        <spring-boot.version>3.4.2</spring-boot.version>
+        <lombok.version>1.18.42</lombok.version>
         <netty.version>4.1.107.Final</netty.version>
         <http.client.version>4.5.14</http.client.version>
         <r2dbc-postgresql.version>1.0.2.RELEASE</r2dbc-postgresql.version>
         <java.auth.jwt>4.4.0</java.auth.jwt>
+        <postgresql.version>42.7.7</postgresql.version>
+        <http.client.version>4.5.14</http.client.version>
+        <r2dbc-postgresql.version>1.0.7.RELEASE</r2dbc-postgresql.version>
+        <spring-framework.version>6.2.10</spring-framework.version>
+        <java.jwt.version>4.4.0</java.jwt.version>
     </properties>
 
     <dependencies>
+
         <!-- lombok [START] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>${lombok.version}</version>
         </dependency>
         <!-- lombok [END] -->
 
@@ -47,45 +53,84 @@
             <scope>test</scope>
         </dependency>
         <!-- Spring Boot Test [END] -->
+
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- Club P6e Coat Common [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-common</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Common [END] -->
+
+            <!-- Club P6e Coat Auth [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-auth</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Auth [END] -->
+
+            <!-- Club P6e Coat Auth Token [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
-                <artifactId>p6e-coat-starter-message-center</artifactId>
+                <artifactId>p6e-coat-starter-auth-token</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Auth Token [END] -->
+
+            <!-- Club P6e Coat Auth Client [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-auth-client</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Auth Client [END] -->
+
+            <!-- Club P6e Coat Message Center [START] -->
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-message-center</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <!-- Club P6e Coat Message Center [END] -->
+
+            <!-- Club P6e Coat Message Center [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-file</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Message Center [END] -->
+
+            <!-- Club P6e Coat Permission [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-permission</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Permission [END] -->
+
+            <!-- Club P6e Coat SSE [START] -->
+            <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-sse</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <!-- Club P6e Coat SSE [END] -->
+
+            <!-- Club P6e Coat Web Socket [START] -->
             <dependency>
                 <groupId>club.p6e.coat</groupId>
                 <artifactId>p6e-coat-starter-websocket</artifactId>
                 <version>${p6e-coat.version}</version>
             </dependency>
+            <!-- Club P6e Coat Web Socket [END] -->
+
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
@@ -100,6 +145,31 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpmime</artifactId>
                 <version>${http.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>4.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>3.4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java.jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>r2dbc-postgresql</artifactId>
+                <version>${r2dbc-postgresql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
