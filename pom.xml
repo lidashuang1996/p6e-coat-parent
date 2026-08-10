@@ -87,6 +87,11 @@
                 <version>${p6e-coat.version}</version>
             </dependency>
             <dependency>
+                <groupId>club.p6e.coat</groupId>
+                <artifactId>p6e-coat-starter-sse</artifactId>
+                <version>${p6e-coat.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
